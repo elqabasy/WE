@@ -8,6 +8,11 @@ from modules.program_one import ProgramOne
 from modules.program_two import ProgramTwo
 from modules.program_three import ProgramThree
 from modules.program_four import ProgramFour
+
+
+from modules.program_five import ProgramFive
+
+from modules.program_six import ProgramSix
 from modules.program_seven import ProgramSeven
 
 
@@ -17,6 +22,8 @@ programs:list[Program] = [
     ProgramTwo,
     ProgramThree,
     ProgramFour,
+    ProgramFive,
+    # ProgramSix,
     ProgramSeven,
 ]
 
@@ -39,11 +46,11 @@ def main(pid:int=None):
 
 # run
 if __name__ == "__main__":
-    try:
-        if len(sys.argv) < 2:
-            main()
-        else:
-            main(pid=int(sys.argv[1]))
-    except Exception as Error:
-        print(Error)
-        print("[!] Unexpected Error Happened.")
+    # try:
+    if len(sys.argv) < 2:
+        main()
+    else:
+        main(pid=int(sys.argv[1]))
+    # except Exception as Error:
+    #     print(Error)
+    #     print("[!] Unexpected Error Happened.")

@@ -2,7 +2,7 @@
 
 from enum import Enum
 from modules.program import Program
-
+from modules.constants import FLOATING_POINTS
 
 
 class Unit(Enum):
@@ -22,19 +22,20 @@ class Distance:
     _unit:Unit
 
     _all = {
-        # the base is cm
-        'cm':1,
-        'mm':0.1,
-        'meter':100,
-        'km':1000*100,
-        'feet':0.3048*100,
-        'inch':0.0254*100,
-        'miles':1609.34*100,
+        # the base is mm, millie meter
+        'mm':1,
+        'cm':10,
+        'meter':1000,
+        'km':1000*1000,
+        'feet':0.3048*1000,
+        'inch':0.0254*1000,
+        'miles':1609.34*1000,
     }
+    
 
     def __init__(self, value:float, unit:Unit):
         self._value = value
-        self._unit = unit
+        self._unit = unit.lower()
 
 
     def unit(self):
@@ -45,33 +46,21 @@ class Distance:
         return self._value
 
 
-    def isDivision(self, source:Unit, dest:Unit):
-        source = source.value if type(source) is Unit else source
-        dest = dest.value if type(dest) is Unit else dest
-        
-        # km to meter
-        if self._all[source] > self._all[dest]:
-            return False # is multiplication
-
-        return True
-
-    def isMultiplication(self, source:Unit, dest:Unit):
-        return not self.isDivision(source, dest)
-        
+    def toBase(self)->float:
+        # convert this vlaue to base(mm)
+        return float(self._all[self._unit] * self._value)
+         
 
     def to(self, dest:Unit):
-        dest = dest.value if type(dest) is Unit else dest
-        source = self._unit
-        converted:float = self.value() * float(self._all[dest]) if self.isMultiplication(source,dest) else self.value() / float(self._all[dest])
+        base = self.toBase()
+        converted:float = base / self._all[dest]
         return Distance(converted, dest)
 
 
     def toString(self):
-        return f"Distance(value={self._value}, unit={self._unit})"
-
-
-
-
+        value = f"{self._value:,.{FLOATING_POINTS}f}"
+        svalue = f"{self._value:,.0f}"
+        return "Distance({2}{1}, value={0}, unit={1})".format(value, self._unit.upper(), svalue)
 
 
 
@@ -85,7 +74,8 @@ class ProgramFour(Program):
 
 
     def run(self):
-        self.echo(f"Units: {', '.join(Distance._all.keys())}")
+        units =  sorted(Distance._all, key=Distance._all.get)
+        self.echo(f"Units: {', '.join(units)}")
 
         source = Distance(
             value=float(self.read("Source Value? ")), 
@@ -95,12 +85,10 @@ class ProgramFour(Program):
         dest = self.read("Dest Unit? ")
 
 
+
+        self.echo("")
+        
         result = source.to(dest)
         self.echo(result.toString())
 
-        # stopped here
-        self.echo("I WILL CONTINUE LATER")    
-            # self.echo("Success")
-        # d = Distance(10, Unit.CM)
-        # self.echo(d.toString())
-        # self.echo(d.to(Unit.METER).toString())
+        
