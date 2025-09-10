@@ -19,7 +19,17 @@ class Program:
 
         # Printing Program Header when run it
         self.header()
-    
+
+
+    def id(self):
+        return self._id
+
+    def name(self):
+        return self._name
+
+    def desc(self):
+        return self._desc
+        
     def header(self):
         print(f"[{self._id}] {self._name}")
         

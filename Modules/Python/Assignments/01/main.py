@@ -46,11 +46,18 @@ def main(pid:int=None):
 
 # run
 if __name__ == "__main__":
-    # try:
-    if len(sys.argv) < 2:
-        main()
-    else:
-        main(pid=int(sys.argv[1]))
-    # except Exception as Error:
-    #     print(Error)
-    #     print("[!] Unexpected Error Happened.")
+    try:
+        if len(sys.argv) < 2:
+            main()
+        else:
+            main(pid=int(sys.argv[1]))
+
+        print("Thank You for your TIME!")
+        print("Developed with ❤️ by Mahros Al-Qabasy")
+    except Exception as Error:
+        print(Error)
+        print("[!] Unexpected Error Happened.")
+        print("[?] Dont pass different data type or special chars to inputs.")
+        print("[?] I don't have time to Make ErrorHandle Module.")
+        print("[?] We will add it later.")
+        
