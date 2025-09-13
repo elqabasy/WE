@@ -23,7 +23,7 @@ programs:list[Program] = [
 # main
 def main(pid:int=None):
     if pid == None:
-        print("[A] Assignment Solution Started!\n")
+        print("[B] Assignment Solution Started!\n")
         for index in range(0, len(programs)):
             ins = programs[index](id=index+1)
             ins.run()
