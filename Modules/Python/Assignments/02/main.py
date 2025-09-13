@@ -63,6 +63,7 @@ if __name__ == "__main__":
 
         print("Thank You for your TIME!")
         print("Developed with ❤️  by Mahros Al-Qabasy")
+        input("Press <enter> to close!")
     except Exception as Error:
         tryAgin(main, Error)
         
