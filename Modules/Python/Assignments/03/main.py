@@ -14,9 +14,9 @@ from modules.program_four import ProgramFour
 
 # programs
 programs:list[Program] = [
-    # ProgramOne,
-    # ProgramTwo,
-    # ProgramThree,
+    ProgramOne,
+    ProgramTwo,
+    ProgramThree,
     ProgramFour
 ]
 
