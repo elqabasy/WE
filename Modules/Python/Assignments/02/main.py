@@ -7,15 +7,17 @@ from modules.program import Program
 from modules.program_one import ProgramOne
 from modules.program_two import ProgramTwo
 from modules.program_three import ProgramThree
+from modules.program_four import ProgramFour
 
 
 
 
 # programs
 programs:list[Program] = [
-    ProgramOne,
-    ProgramTwo,
-    ProgramThree,
+    # ProgramOne,
+    # ProgramTwo,
+    # ProgramThree,
+    ProgramFour
 ]
 
 
