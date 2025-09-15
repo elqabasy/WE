@@ -1,0 +1,48 @@
+Title.: Assignment#02
+Author: Mahros AL-Qabasy
+Repo  : https://github.com/elqabasy/we/
+
+
+Simple Way to test this:
+	Windows:
+		install and run this: https://github.com/elqabasy/WE/blob/main/Modules/Python/Assignments/02/bin/windows-run.exe
+
+	Linux:
+		install and run this: https://github.com/elqabasy/WE/blob/main/Modules/Python/Assignments/02/bin/linux-run
+
+
+ZIP Installation:
+	- download the .tar file you have
+	Linux:
+		#just copy this into your terminal
+		
+		tar -xz MahrosAL-Qabasy.Assignment#02.tar
+		cd ./MahrosAL-Qabasy.Assignment#02
+
+		python main.py 		# will run all apps 
+		python main.py 3	# will run all 3 
+
+	Windows:
+		- Just extract it
+		- Navigate to it
+
+		python main.py
+
+
+GIT Installation:
+	Window/Linux:
+		git clone git@github.com:elqabasy/WE.git
+		cd ./WE/Modules/Python/Assignements/02/
+
+		python main.py
+		# or
+		python main.py 1
+
+	and ENJOY
+
+
+Usage:
+	python main.py
+
+
+Developed with ❤️ by Mahros Al-Qabasy
